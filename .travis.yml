@@ -18,4 +18,5 @@ install:
   - popd
 
 script:
-  - ./linux rootfstype=hostfs eth0=slirp,,/usr/bin/slirp-fullbolt init=$(pwd)/init.sh WORKDIR=$(pwd)
+  - ./linux quiet rootfstype=hostfs eth0=slirp,,/usr/bin/slirp-fullbolt init=$(pwd)/init.sh WORKDIR=$(pwd)
+  - ls -l
