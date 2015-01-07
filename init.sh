@@ -13,7 +13,12 @@ trap save_and_shutdown EXIT INT TERM
 cd $WORKDIR
 pwd
 
-mkdir $WORKDIR/host
-mount none $WORKDIR/host -o $WORKDIR/humfs-mount -t humfs
 
-docker -d -H unix://$WORKDIR/host/docker.sock &
+# configure networking
+ip addr add 127.0.0.1 dev lo
+ip link set lo up
+ip addr add 10.1.1.1/24 dev eth0
+ip link set eth0 up
+ip route add default via 10.1.1.254
+
+docker -d
