@@ -8,7 +8,7 @@ before_install:
   - sudo chmod +x /usr/sbin/policy-rc.d
 
 install:
-  - sudo apt-get install -qq uml-utilities slirp lxc-docker
+  - sudo apt-get install -qq uml-utilities slirp lxc-docker tree
   - curl -sLo linux https://github.com/jpetazzo/sekexe/raw/master/uml
   - chmod +x linux
   - mkdir -p humfs-mount/data
@@ -19,4 +19,4 @@ install:
 
 script:
   - ./linux quiet rootfstype=hostfs rw eth0=slirp,,/usr/bin/slirp-fullbolt init=$(pwd)/init.sh WORKDIR=$(pwd)
-  - ls -l
+  - tree -pugC
