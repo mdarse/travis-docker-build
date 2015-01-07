@@ -13,11 +13,7 @@ trap save_and_shutdown EXIT INT TERM
 cd $WORKDIR
 pwd
 
-stat $WORKDIR
+mkdir $WORKDIR/host
+mount none $WORKDIR/host -o $WORKDIR/humfs-mount -t humfs
 
-mount
-
-touch up.txt
-
-# mount none /host -o $WORKDIR/humfs-mount -t humfs
-# ls -l /host
+docker -d -H unix://$WORKDIR/host/docker.sock &
