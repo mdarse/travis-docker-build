@@ -7,7 +7,7 @@ save_and_shutdown() {
   halt -f
 }
 # make sure we shut down cleanly
-trap save_and_shutdown EXIT SIGINT SIGTERM
+trap save_and_shutdown EXIT INT TERM
 
 
 cd $WORKDIR
