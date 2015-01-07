@@ -13,6 +13,11 @@ trap save_and_shutdown EXIT INT TERM
 cd $WORKDIR
 pwd
 
-mkdir -p /host
-mount none /host -o $WORKDIR/humfs-mount -t humfs
-ls -l /host
+stat $WORKDIR
+
+mount
+
+touch up.txt
+
+# mount none /host -o $WORKDIR/humfs-mount -t humfs
+# ls -l /host
