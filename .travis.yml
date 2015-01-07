@@ -18,5 +18,5 @@ install:
   - popd
 
 script:
-  - ./linux quiet rootfstype=hostfs rw eth0=slirp,,$(pwd)/slirp.sh init=$(pwd)/init.sh WORKDIR=$(pwd)
+  - ./linux quiet rootfstype=hostfs rw eth0=slirp,,$(pwd)/slirp.sh init=$(pwd)/init.sh WORKDIR=$(pwd) HOME=$(pwd)
   - netstat -l
