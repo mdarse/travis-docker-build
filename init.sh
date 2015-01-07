@@ -33,6 +33,10 @@ mount -t tmpfs none /var/run
 # takes the pain out of cgroups
 cgroups-mount
 
+# some storage for docker
+mkdir -p /var/lib/docker
+mount none /var/lib/docker -t hostfs -o $DOCKER_STORAGE
+
 
 # configure networking
 ip addr add 127.0.0.1 dev lo

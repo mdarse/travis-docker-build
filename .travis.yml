@@ -8,15 +8,12 @@ before_install:
   - sudo chmod +x /usr/sbin/policy-rc.d
 
 install:
-  - sudo apt-get install -qq uml-utilities slirp lxc-docker tree
+  - sudo apt-get install -qq slirp lxc-docker
   - curl -sLo linux https://github.com/jpetazzo/sekexe/raw/master/uml
   - chmod +x linux
-  - mkdir -p humfs-mount/data
-  - pushd humfs-mount
-  - echo "Yo!" > data/hello.txt
-  - humfsify $USER $USER 4G
-  - popd
+  - mkdir docker_storage
+  - export DOCKER_HOST="tcp://0.0.0.0:2375"
 
 script:
-  - ./linux quiet rootfstype=hostfs rw eth0=slirp,,$(pwd)/slirp.sh init=$(pwd)/init.sh WORKDIR=$(pwd) HOME=$(pwd)
-  - netstat -l
+  - ./linux quiet rootfstype=hostfs rw eth0=slirp,,$(pwd)/slirp.sh init=$(pwd)/init.sh WORKDIR=$(pwd) HOME=$(pwd) DOCKER_STORAGE=$(pwd)/docker_storage
+  - docker version
