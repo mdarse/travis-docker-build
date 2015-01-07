@@ -12,6 +12,9 @@ save_and_shutdown() {
 # make sure we shut down cleanly
 trap save_and_shutdown EXIT INT TERM
 
+# configure path to include /usr/local
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
 # can't do much without proc!
 mount -t proc none /proc
 
