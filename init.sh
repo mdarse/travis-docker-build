@@ -50,18 +50,17 @@ ip route add default via 10.0.2.2
 
 # start docker daemon
 echo "Starting docker daemon..."
-exec docker -d -H tcp://0.0.0.0:2375 &
+exec docker -d -H tcp://0.0.0.0:2375
+# echo -n "Waiting for docker to start"
+# while netstat -lnt | awk '$4 ~ /:2375$/ {exit 1}'
+# do
+#     echo -n "."
+#     sleep 10
+# done
+# echo
 
-echo -n "Waiting for docker to start"
-while netstat -lnt | awk '$4 ~ /:2375$/ {exit 1}'
-do
-    echo -n "."
-    sleep 10
-done
-echo
-
-export DOCKER_HOST="tcp://127.0.0.1:2375"
-echo "$ docker version"
-docker version
+# export DOCKER_HOST="tcp://127.0.0.1:2375"
+# echo "$ docker version"
+# docker version
 # exec docker -d -H tcp://0.0.0.0:2375 > "$STDOUT" 2> "$STDERR"
-# echo "Docker daemon exited."
+echo "Docker daemon exited."
