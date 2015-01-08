@@ -19,4 +19,4 @@ install:
 script:
   - sudo netstat -lp
   - docker version
-  - cat *_std{err,out}.log
+  - cat docker_daemon_std{err,out}.log
