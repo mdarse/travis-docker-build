@@ -12,7 +12,7 @@ install:
   - curl -sLo linux https://github.com/jpetazzo/sekexe/raw/master/uml
   - chmod +x linux
   - mkdir docker_storage
-  - ./run.sh &> docker_daemon.log
+  - ./run.sh &> docker_daemon.log &
   - sleep 3
   - export DOCKER_HOST="tcp://127.0.0.1:2375"
   - docker version
