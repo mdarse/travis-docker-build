@@ -13,7 +13,7 @@ install:
   - chmod +x linux
   - mkdir docker_storage
   - export DOCKER_HOST="tcp://0.0.0.0:2375"
+  - ./run.sh &
 
 script:
-  - ./linux quiet rootfstype=hostfs rw eth0=slirp,,$(pwd)/slirp.sh init=$(pwd)/init.sh WORKDIR=$(pwd) HOME=$(pwd) DOCKER_STORAGE=$(pwd)/docker_storage
   - docker version
