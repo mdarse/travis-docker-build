@@ -14,6 +14,7 @@ install:
   - mkdir docker_storage
   - export DOCKER_HOST="tcp://0.0.0.0:2375"
   - ./run.sh &
+  - sleep 10
 
 script:
   - docker version

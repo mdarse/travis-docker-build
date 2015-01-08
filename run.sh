@@ -1,6 +1,6 @@
 #!/bin/sh
 
-WORKDIR="$(pwd)""
+WORKDIR="$(pwd)"
 DOCKER_STORAGE="$WORKDIR"/docker_storage
 
 ./linux quiet rootfstype=hostfs rw \
