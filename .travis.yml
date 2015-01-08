@@ -13,7 +13,7 @@ install:
   - chmod +x linux
   - mkdir docker_storage
   - ./run.sh &> docker_daemon.log &
-  - sleep 3
+  - ./wait_for_docker.sh
   - export DOCKER_HOST="tcp://127.0.0.1:2375"
   - docker version
   - cat docker_daemon.log
