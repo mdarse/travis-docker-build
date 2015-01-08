@@ -13,6 +13,7 @@ DOCKER_STORAGE="$WORKDIR"/docker_storage
     eth0=slirp,,"$WORKDIR"/slirp.sh \
     init="$WORKDIR"/init.sh \
     WORKDIR="$WORKDIR" \
+    HOME="$HOME" \
     DOCKER_STORAGE="$DOCKER_STORAGE"
     # STDOUT="$STDOUT"
     # STDERR="$STDERR"
