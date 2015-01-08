@@ -8,3 +8,5 @@ DOCKER_STORAGE="$WORKDIR"/docker_storage
     init="$WORKDIR"/init.sh \
     WORKDIR="$WORKDIR" \
     DOCKER_STORAGE="$DOCKER_STORAGE"
+    > uml_stdout.log
+    2> uml_stderr.log

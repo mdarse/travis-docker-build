@@ -17,4 +17,6 @@ install:
   - sleep 10
 
 script:
+  - sudo netstat -lp
   - docker version
+  - cat *_std{err,out}.log

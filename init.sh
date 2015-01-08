@@ -49,4 +49,6 @@ ip link set eth0 up
 ip route add default via 10.0.2.2
 
 # start docker daemon
-exec docker -d -H tcp://0.0.0.0:2375
+exec docker -d -H tcp://0.0.0.0:2375 \
+    > docker_daemon_stdout.log \
+    2> docker_daemon_stderr.log
