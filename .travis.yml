@@ -13,12 +13,11 @@ install:
   - chmod +x linux
   - mkdir docker_storage
   - export DOCKER_HOST="tcp://0.0.0.0:2375"
-  # - ./run.sh &
-  - ./run.sh
+  - ./run.sh > stdout.log 2> stderr.log &
   - sleep 10
 
 script:
   - sudo netstat -lp
   - docker version
-  - cat uml_std{err,out}.log
-  - cat docker_daemon_std{err,out}.log
+  - cat stderr.log
+  - cat stdout.log
