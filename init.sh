@@ -50,5 +50,6 @@ ip route add default via 10.0.2.2
 
 # start docker daemon
 echo "Starting docker daemon..."
-exec docker -d -H tcp://0.0.0.0:2375 > "$STDOUT" 2> "$STDERR"
+exec docker -d -H tcp://0.0.0.0:2375
+# exec docker -d -H tcp://0.0.0.0:2375 > "$STDOUT" 2> "$STDERR"
 echo "Docker daemon exited."

@@ -13,7 +13,8 @@ install:
   - chmod +x linux
   - mkdir docker_storage
   - export DOCKER_HOST="tcp://0.0.0.0:2375"
-  - ./run.sh &
+  # - ./run.sh &
+  - ./run.sh
   - sleep 10
 
 script:
