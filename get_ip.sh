@@ -1,4 +1,4 @@
 #!/bin/sh
 set -euf -o pipefail
 
-ip addr | grep 'state UP' -A2 | tail -n1 | awk '{print $2}' | cut -f1  -d'/'
+ip addr | grep 'scope global' | head -n1 | awk '{print $2}' | cut -f1  -d'/'
