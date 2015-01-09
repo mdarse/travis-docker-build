@@ -41,10 +41,15 @@ mkdir -p /var/lib/docker
 mount none /var/lib/docker -t hostfs -o $DOCKER_STORAGE
 
 
+cat > "$HOME"/.slirprc <<EOF
+redir 3000 3000
+host addr $HOST_IP
+EOF
+
 # configure networking
 ip addr add 127.0.0.1 dev lo
 ip link set lo up
-ip addr add 10.0.2.15/24 dev eth0
+ip addr add 10.0.2.15/16 dev eth0
 ip link set eth0 up
 ip route add default via 10.0.2.2
 

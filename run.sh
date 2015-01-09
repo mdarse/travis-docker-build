@@ -14,7 +14,8 @@ DOCKER_STORAGE="$WORKDIR"/docker_storage
     init="$WORKDIR"/init.sh \
     WORKDIR="$WORKDIR" \
     HOME="$HOME" \
-    DOCKER_STORAGE="$DOCKER_STORAGE"
+    DOCKER_STORAGE="$DOCKER_STORAGE" \
+    HOST_IP="$HOST_IP"
     # STDOUT="$STDOUT"
     # STDERR="$STDERR"
     # > uml_stdout.log
