@@ -1,5 +1,5 @@
 #!/bin/sh
-set -eufx
+set -euf
 
 # when no arguments was given
 if [ $# -eq 0 ]; then
@@ -23,7 +23,7 @@ mkdir -p $DOCKER_STORAGE
 # docker server should be reachable only on $HOST_IP due to port redirect
 export DOCKER_HOST="tcp://${HOST_IP}:2375"
 
-./linux quiet rootfstype=hostfs rw \
+$WORKDIR/linux quiet rootfstype=hostfs rw \
     eth0=slirp,,"${WORKDIR}/slirp.sh" \
     init="${WORKDIR}/init.sh" \
     WORKDIR="$WORKDIR" \
