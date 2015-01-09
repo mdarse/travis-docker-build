@@ -14,8 +14,9 @@ WORKDIR="$(pwd)"
 DOCKER_STORAGE="${WORKDIR}/docker_storage"
 mkdir -p $DOCKER_STORAGE
 
+# since we can't pass directly argument to slirp binary, we use a wrapper script
+
 $WORKDIR/linux quiet rootfstype=hostfs rw \
-    # since we can't pass directly argument to slirp binary, we use a wrapper script
     eth0=slirp,,"${WORKDIR}/slirp.sh" \
     init="${WORKDIR}/init.sh" \
     WORKDIR="$WORKDIR" \
