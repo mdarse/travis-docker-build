@@ -13,6 +13,7 @@ install:
   - chmod +x linux
   - export DOCKER_HOST_IP="$(./get_ip.sh)"
   - ./run.sh $DOCKER_HOST_IP &> docker_daemon.log &
+  - printenv
   # - ./run.sh $DOCKER_HOST_IP
   - ./wait_for_docker.sh $DOCKER_HOST_IP
 
