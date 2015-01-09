@@ -1,5 +1,5 @@
 #!/bin/sh
-set -euf
+set -eufx
 
 # when no arguments was given
 if [ $# -eq 0 ]; then
