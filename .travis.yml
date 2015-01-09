@@ -12,9 +12,9 @@ install:
   - curl -sLo linux https://github.com/jpetazzo/sekexe/raw/master/uml
   - chmod +x linux
   - export DOCKER_HOST_IP="$(./get_ip.sh)"
-  # - ./run.sh $DOCKER_HOST_IP &> docker_daemon.log &
-  - ./run.sh $DOCKER_HOST_IP
-  # - ./wait_for_docker.sh $DOCKER_HOST_IP
+  - ./run.sh $DOCKER_HOST_IP &> docker_daemon.log &
+  # - ./run.sh $DOCKER_HOST_IP
+  - ./wait_for_docker.sh $DOCKER_HOST_IP
 
 script: docker version
 
