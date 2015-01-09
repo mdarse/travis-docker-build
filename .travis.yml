@@ -11,18 +11,10 @@ install:
   - sudo apt-get install -qq slirp lxc-docker
   - curl -sLo linux https://github.com/jpetazzo/sekexe/raw/master/uml
   - chmod +x linux
-  - mkdir docker_storage
-  - ip addr show
-  - export HOST_IP=$(./get_ip.sh)
-  - export DOCKER_HOST="tcp://$HOST_IP:2375"
-  - ./run.sh &> docker_daemon.log &
-  - tail -f docker_daemon.log &
-  - printenv
-  - ./wait_for_docker.sh
-  - docker version
+  - export DOCKER_HOST_IP="$(./get_ip.sh)"
+  - ./run.sh $DOCKER_HOST_IP &> docker_daemon.log &
+  - ./wait_for_docker.sh $DOCKER_HOST_IP
 
-# script:
-#   - sudo netstat -lp
-#   - docker version
-#   - cat stderr.log
-#   - cat stdout.log
+script: docker version
+
+after_failure: cat docker_daemon.log
