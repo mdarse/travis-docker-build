@@ -14,9 +14,9 @@ RETRIES=10
 
 echo -n "Waiting for docker to start on ${HOST}:${PORT}"
 # loop until we connect successfully or failed 10 times
-until curl "http://${HOST}:${PORT}/info" &>/dev/null
+until curl "http://${HOST}:${PORT}/info" >/dev/null 2>/dev/null
 do
-    let RETRIES-=1
+    RETRIES=$(($RETRIES - 1))
     if [ $RETRIES -eq 0 ]
     then
         echo "Failed to connect"
