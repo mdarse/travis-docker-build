@@ -17,8 +17,8 @@ mkdir -p $DOCKER_STORAGE
 # since we can't pass directly argument to slirp binary, we use a wrapper script
 
 $WORKDIR/linux quiet mem=2G rootfstype=hostfs rw \
-    eth0=slirp,,"${WORKDIR}/slirp.sh" \
-    init="${WORKDIR}/init.sh" \
+    eth0=slirp,,"${WORKDIR}/slirp" \
+    init="${WORKDIR}/init" \
     WORKDIR="$WORKDIR" \
     HOME="$HOME" \
     DOCKER_STORAGE="$DOCKER_STORAGE" \
