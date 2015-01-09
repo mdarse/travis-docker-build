@@ -14,6 +14,7 @@ install:
   - mkdir docker_storage
   - ip addr show
   - export HOST_IP=$(./get_ip.sh)
+  - echo "Found host ip address: $HOST_IP"
   - export DOCKER_HOST="tcp://$HOST_IP:2375"
   - ./run.sh &> docker_daemon.log &
   - tail -f docker_daemon.log &
