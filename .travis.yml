@@ -13,6 +13,7 @@ install:
   - chmod +x linux
   - export DOCKER_HOST_IP="$(./get_ip)"
   - sudo ./docker_daemon $DOCKER_HOST_IP &> docker_daemon.log &
+  - tail -f -n +1 docker_daemon.log
   - ./wait_for_docker $DOCKER_HOST_IP
   - export DOCKER_HOST="tcp://$DOCKER_HOST_IP:2375"
   - docker version
