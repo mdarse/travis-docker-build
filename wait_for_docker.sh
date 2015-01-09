@@ -10,7 +10,7 @@ fi
 HOST=$1
 # port defaults to 2375
 PORT=${2:-2375}
-RETRIES=10
+RETRIES=20
 
 echo -n "Waiting for docker to start on ${HOST}:${PORT}"
 # loop until we connect successfully or failed 10 times
