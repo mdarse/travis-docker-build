@@ -47,6 +47,11 @@ ip addr add 10.0.2.15/16 dev eth0
 ip link set eth0 up
 ip route add default via 10.0.2.2
 
+# configure dns (google public)
+mkdir -p /run/resolvconf
+echo 'nameserver 8.8.8.8' > /run/resolvconf/resolv.conf
+mount --bind /run/resolvconf/resolv.conf /etc/resolv.conf
+
 # start docker daemon
 echo "Starting docker daemon..."
 exec docker -d -H tcp://0.0.0.0:2375
