@@ -1,5 +1,5 @@
 #!/bin/sh
-set -euf
+set -e
 
 # when no arguments was given
 if [ $# -eq 0 ]; then
@@ -7,14 +7,15 @@ if [ $# -eq 0 ]; then
     exit 1
 fi
 
-HOST_IP=$1
+# since we can't pass directly argument to slirp binary, we use a wrapper script
+# that gets parameters from environment
+export DOCKER_HOST_IP="$1"
+
 WORKDIR="$(pwd)"
 
 # will be mounted inside UML as /var/lib/docker
-DOCKER_STORAGE="${WORKDIR}/docker_storage"
+DOCKER_STORAGE="${HOME}/docker_storage"
 mkdir -p $DOCKER_STORAGE
-
-# since we can't pass directly argument to slirp binary, we use a wrapper script
 
 $WORKDIR/linux quiet mem=2G rootfstype=hostfs rw \
     eth0=slirp,,"${WORKDIR}/slirp" \

@@ -11,7 +11,7 @@ install:
   - sudo apt-get install -qq slirp lxc-docker
   - curl -sLo linux https://github.com/jpetazzo/sekexe/raw/master/uml
   - chmod +x linux
-  - export DOCKER_HOST_IP="$(./get_ip)"
+  - DOCKER_HOST_IP="$(./get_ip)"
   - sudo ./docker_daemon $DOCKER_HOST_IP &> docker_daemon.log &
   # - tail -f -n +1 docker_daemon.log
   - ./wait_for_docker $DOCKER_HOST_IP
