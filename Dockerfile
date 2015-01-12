@@ -1,2 +1,1 @@
-FROM ubuntu
-RUN echo "Yo!" > yo.txt
+FROM ubuntu:latest
